@@ -10,12 +10,14 @@ class SessionsController < ApplicationController
     user = User.find_or_create_by_username(data[:login], attributes)
 
     session[:user_id] = user.id
-    redirect_to root_url, :notice => 'Successfully signed in via GitHub!'
+    flash[:success] = 'Successfully signed in via GitHub!'
+    redirect_to root_url
   end
 
   def destroy
     reset_session
-    redirect_to root_url, :notice => 'You have been signed out.'
+    flash[:info] = 'You have been signed out.'
+    redirect_to root_url
   end
 
   def failure

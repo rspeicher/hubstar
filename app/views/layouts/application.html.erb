@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hubstar</title>
+  <title>HubStar</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body style="padding-top: 60px">
-  <div class="topbar">
-    <div class="topbar-inner">
+<body>
+  <div class="navbar navbar-static">
+    <div class="navbar-inner">
       <div class="container">
-        <h3><%= link_to "Hubstar", "/" %></h3>
+        <%= link_to "HubStar", root_path, :class => 'brand' %>
         <ul class="nav">
           <li><%= link_to "Link1", "/path1"  %></li>
-          <li><%= link_to "Link2", "/path2"  %></li>
-          <li><%= link_to "Link3", "/path3"  %></li>
+        </ul>
+        <ul class="nav pull-right">
+          <% if signed_in? %>
+            <li class="current-user">
+              <h3><%= current_user %></h3>
+              <%= image_tag current_user.avatar_url, :size => '28x28' %>
+            </li>
+          <% else %>
+            <li><%= link_to 'Sign in with GitHub', sign_in_path %></li>
+          <% end %>
         </ul>
       </div>
     </div>
@@ -22,20 +30,33 @@
   <div class="container">
     <div class="content">
       <div class="row">
-        <div class="span11">
+        <div class="span12">
+          <% flash.each do |type, message| %>
+            <div class="alert alert-<%= type %> fade in">
+              <a class="close" data-dismiss="alert">&times;</a>
+              <%= message %>
+            </div>
+          <% end %>
+
           <%= yield %>
-        </div>
-        <div class="span1">&nbsp;</div>
-        <div class="span4">
-          <h3>Sidebar</h3>
-          <ul>
-            <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
-          </ul>
         </div>
       </div>
     </div>
+
+    <footer>
+      <div class="row">
+        <div class="span6">
+          <%= link_to "HubStar", root_url %> &copy; <%= Date.today.year %> Robert Speicher
+          -- <%= link_to 'Fork me', 'https://github.com/tsigo/hubstar/' %> on GitHub!
+        </div>
+        <div class="span6 pull-right">
+          <% if signed_in? %>
+            Signed in with <%= link_to 'GitHub', current_user.html_url %>
+            -- <%= link_to 'Sign Out', sign_out_path, :method => :delete, :confirm => "Are you sure?" %>
+          <% end %>
+        </div>
+      </div>
+    </footer>
   </div>
 </body>
 </html>
