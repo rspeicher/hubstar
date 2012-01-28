@@ -10,5 +10,6 @@ group :assets do
   gem 'uglifier',     '>= 1.0.3'
 end
 
+gem 'hashie'
 gem 'omniauth-github', '~> 1.0.1'
 gem 'twitter-bootstrap-rails'

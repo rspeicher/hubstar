@@ -138,6 +138,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  hashie
   jquery-rails
   omniauth-github (~> 1.0.1)
   pg
