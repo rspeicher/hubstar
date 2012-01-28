@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
 
   delegate :login, :avatar_url, :html_url, :to => :github_data
 
+  has_and_belongs_to_many :repositories
+
   # Convert github_data to a <tt>Hashie::Mash</tt> object so that delegation works
   def github_data
     @github_data ||= Hashie::Mash.new(read_attribute(:github_data))
