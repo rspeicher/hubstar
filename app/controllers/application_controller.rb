@@ -22,7 +22,10 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     unless signed_in?
-      redirect_to sign_in_url, :alert => 'You need to sign in for access to this page.'
+      respond_to do |wants|
+        wants.html { redirect_to sign_in_url, :alert => 'You need to sign in for access to this page.' }
+        wants.json { render json: {error: "You must be logged in on HubStar."} }
+      end
     end
   end
 end
