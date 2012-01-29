@@ -17,5 +17,6 @@ gem 'twitter-bootstrap-rails'
 group :development, :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails', '~> 1.6.0'
+  gem 'shoulda-matchers'
   gem 'rspec-rails'
 end

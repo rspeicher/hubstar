@@ -133,6 +133,7 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    shoulda-matchers (1.0.0)
     sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -167,5 +168,6 @@ DEPENDENCIES
   rails (= 3.2.1)
   rspec-rails
   sass-rails (~> 3.2.3)
+  shoulda-matchers
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)

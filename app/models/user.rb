@@ -3,9 +3,9 @@ class User < ActiveRecord::Base
 
   serialize :github_data
 
-  delegate :login, :avatar_url, :html_url, :to => :github_data
+  delegate :login, :avatar_url, :html_url, to: :github_data
 
-  has_and_belongs_to_many :repositories
+  has_and_belongs_to_many :repositories, uniq: true
 
   # Convert github_data to a <tt>Hashie::Mash</tt> object so that delegation works
   def github_data
