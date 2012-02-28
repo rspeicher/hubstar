@@ -1,3 +1,11 @@
+<%- if signed_in? %>
+
+  <h2>My Starred Repositories</h2>
+
+  <%= render partial: 'repositories/list', locals: {repositories: current_user.repositories} %>
+
+<%- else %>
+
 <div class="hero-unit">
   <div class="row">
     <div class="span1">
@@ -12,34 +20,6 @@
   </div>
 </div>
 
-<%- if signed_in? %>
-
-  <h2>My Starred Repositories</h2>
-
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Watchers</th>
-        <th>Forks</th>
-        <th>Stars</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% current_user.repositories.each do |repo| %>
-        <tr>
-          <td><%= repo.name %></td>
-          <td><%= repo.description %></td>
-          <td><%= repo.watchers %></td>
-          <td><%= repo.forks %></td>
-          <td><%= repo.stars %></td>
-      <% end %>
-    </tbody>
-  </table>
-
-<%- else %>
-
 <div class="intro">
   <p><strong>HubStar</strong> is the missing "star" feature for
   <%= link_to('GitHub', 'https://github.com/') %> repositories. You can already
@@ -48,8 +28,8 @@
   <h2>How does it work?</h2>
 
   <p>After signing in to HubStar with your GitHub account and installing a
-  browser extension, you'll notice a new section on a GitHub repository
-  page:</p>
+  browser extension, you'll notice a new section next to the fork and watch
+  sections on any GitHub repository page:</p>
 
   <%= image_tag("http://f.cl.ly/items/1C2o1e0L3n1H1N2Z1c0B/HubStar.jpg") %>
 
@@ -60,11 +40,10 @@
   <h2>Security & Privacy</h2>
 
   <p>On GitHub repository pages, the HubStar browser extension makes a
-  <tt>GET</tt> request to HubStar's servers with the username/repository
-  combination of the currently viewed repository. It will only do this on
-  <strong>public</strong> repositories. No information regarding private
-  repositories is ever sent to external servers, or even read by the
-  extension.</p>
+  <tt>GET</tt> request to HubStar's servers, passing along the URL of the
+  currently viewed repository. It will only do this on <strong>public</strong>
+  repositories. No information regarding private repositories is ever sent to
+  external servers, or even read by the extension.</p>
 
   <p>Further, the source for the entire site, including the browser extensions,
   is <%= link_to('available on GitHub', 'https://github.com/tsigo/hubstar') %>.</p>

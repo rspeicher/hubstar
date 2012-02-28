@@ -36,6 +36,10 @@ class Repository < ActiveRecord::Base
     users << value
   end
 
+  def link
+    "https://github.com/#{name}"
+  end
+
   def stars
     users.size
   end

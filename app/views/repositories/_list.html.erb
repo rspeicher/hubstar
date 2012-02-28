@@ -1,0 +1,15 @@
+<% repositories.each do |repo| %>
+  <div class="row repo-info">
+    <div class="span9">
+      <h3><%= link_to(repo.name, repo.link) %></h3>
+      <p class="description"><%= repo.description %></p>
+    </div>
+    <div class="span3">
+      <div class="row repo-stats">
+        <div class="span1 hubstars"><span><%= repo.stars %></span></div>
+        <div class="span1 watchers"><span><%= repo.watchers %></span></div>
+        <div class="span1 forks"><span><%= repo.forks %></span></div>
+      </div>
+    </div>
+  </div>
+<% end %>

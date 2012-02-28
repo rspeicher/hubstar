@@ -18,13 +18,52 @@
 
 div.intro {
   h2 {
-    padding: 10px 0;
+    margin: 15px 0;
   }
   p {
     font-size: 120%;
   }
   img {
     border: 2px solid #efefef;
+    margin: 12px 10px;
+  }
+}
+
+.repo-info {
+  padding: 8px 0 0 0;
+
+  &:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+
+  .description {
+    font-size: 0.9em;
+    color: #777;
+  }
+
+  .repo-stats {
+    text-align: right;
+    font-weight: bold;
+    font-size: 85%;
+
+    span {
+      display: inline-block;
+      height: 21px;
+      padding: 0 5px 0 23px;
+      line-height: 21px;
+      color: #666;
+      background: transparent url(image-path('repostat.png')) no-repeat 0 0;
+    }
+    .hubstars span {
+      background: transparent url(image-path('stars.png')) no-repeat 0 0;
+      background-position: 4px -47px;
+    }
+    .watchers span {
+      background-position: 5px -2px;
+    }
+    .forks span {
+      background-position: 5px -52px;
+    }
   }
 }
 
