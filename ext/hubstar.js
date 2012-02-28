@@ -1,6 +1,6 @@
 (function() {
   var base, clickHandler, getRepo, initStat, setStat, successHandler;
-  base = "http://hubstar.dev";
+  base = "http://hubstar.herokuapp.com";
   getRepo = function() {
     return document.location.href.replace(/https:\/\/github.com\/([^\/\#]+)\/([^\/\#]+).*/i, "$1/$2").trim();
   };

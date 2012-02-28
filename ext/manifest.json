@@ -11,6 +11,8 @@
   "permissions": [
     "tabs",
     "http://hubstar.dev/",
-    "https://hubstar.dev/"
+    "https://hubstar.dev/",
+    "http://hubstar.herokuapp.com/",
+    "https://hubstar.herokuapp.com/"
   ]
 }
