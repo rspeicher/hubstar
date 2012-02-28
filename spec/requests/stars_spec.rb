@@ -9,17 +9,17 @@ describe "stars#update" do
   end
 
   it "creates a new repository" do
-    put '/star.json', repository: {name: repo.name}
+    put '/star.json', id: repo.name
     Repository.should have(1).record
   end
 
   it "associates the repository to the user" do
-    put '/star.json', repository: {name: repo.name}
+    put '/star.json', id: repo.name
     user.repositories.should have(1).record
   end
 
   it "renders an updated JSON record" do
-    put '/star.json', repository: {name: repo.name}
+    put '/star.json', id: repo.name
     json = json(response.body)
 
     json['stars'].should == 1
