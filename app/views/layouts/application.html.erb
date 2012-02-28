@@ -10,15 +10,19 @@
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <%= link_to "HubStar", root_path, :class => 'brand' %>
+        <%= link_to "HubStar", root_path, class: 'brand' %>
         <ul class="nav">
         </ul>
         <ul class="nav pull-right">
           <% if signed_in? %>
-            <li class="current-user">
-              <h3><%= current_user %></h3>
-              <%= image_tag current_user.avatar_url, :size => '28x28' %>
+            <li class="dropdown">
+              <%= link_to((current_user.to_s + content_tag(:b, nil, class: 'caret')).html_safe, '#', class: 'dropdown-toggle', data: {toggle: 'dropdown'}) %>
+              <ul class="dropdown-menu">
+                <li><%= link_to('GitHub Profile', current_user.html_url) %></li>
+                <li><%= link_to('Sign Out', sign_out_path, method: :delete, confirm: "Are you sure you want to log out?") %></li>
+              </ul>
             </li>
+            <li><%= image_tag current_user.avatar_url, size: '28x28' %></li>
           <% else %>
             <li><%= link_to 'Sign in with GitHub', sign_in_path %></li>
           <% end %>
@@ -26,6 +30,7 @@
       </div>
     </div>
   </div>
+
   <div class="container">
     <div class="content">
       <div class="row">
@@ -49,10 +54,6 @@
           -- <%= link_to 'Fork me', 'https://github.com/tsigo/hubstar/' %> on GitHub!
         </div>
         <div class="span6 pull-right">
-          <% if signed_in? %>
-            Signed in with <%= link_to 'GitHub', current_user.html_url %>
-            -- <%= link_to 'Sign Out', sign_out_path, :method => :delete, :confirm => "Are you sure?" %>
-          <% end %>
         </div>
       </div>
     </footer>
