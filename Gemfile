@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
 gem 'pg'
-gem 'jquery-rails'
+
+gem 'jquery-rails', '~> 1.0.0'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
