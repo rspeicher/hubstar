@@ -1,0 +1,7 @@
+ul.repo-stats li.hubstars a {
+  background-position: 4px -47px;
+}
+
+ul.repo-stats li.hubstars.hubstarred a {
+  background-position: 4px 2px;
+}
