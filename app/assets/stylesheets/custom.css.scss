@@ -1,3 +1,8 @@
+.navbar .brand {
+  background: url(image-path('star-24.png')) center left no-repeat;
+  padding-left: 30px;
+}
+
 .navbar .nav .current-user {
   img {
     margin: 6px 0 0 5px;
@@ -8,6 +13,18 @@
     display: inline;
     top: -8px;
     position: relative;
+  }
+}
+
+div.intro {
+  h2 {
+    padding: 10px 0;
+  }
+  p {
+    font-size: 120%;
+  }
+  img {
+    border: 2px solid #efefef;
   }
 }
 
