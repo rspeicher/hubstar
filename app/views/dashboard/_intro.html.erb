@@ -1,0 +1,33 @@
+<div class="intro">
+  <p><strong>HubStar</strong> is the missing "star" feature for
+  <%= link_to('GitHub', 'https://github.com/') %> repositories. You can already
+  star Gists, so why not repositories?</p>
+
+  <h2>How does it work?</h2>
+
+  <p>After signing in to HubStar with your GitHub account and installing a
+  browser extension, you'll notice a new section next to the fork and watch
+  sections on any GitHub repository page:</p>
+
+  <%= image_tag("http://f.cl.ly/items/1C2o1e0L3n1H1N2Z1c0B/HubStar.jpg") %>
+
+  <p>The new <strong>star icon</strong> works just like the fork and watch
+  icons you're used to using on GitHub. Click the star to remember it for
+  later, click it again to stop.</p>
+
+  <h2>Security & Privacy</h2>
+
+  <p>On GitHub repository pages, the HubStar browser extension makes a
+  <tt>GET</tt> request to HubStar's servers, passing along the URL of the
+  currently viewed repository. It will only do this on <strong>public</strong>
+  repositories. No information regarding private repositories is ever sent to
+  external servers, or even read by the extension.</p>
+
+  <p>Further, the source for the entire site, including the browser extensions,
+  is <%= link_to('available on GitHub', 'https://github.com/tsigo/hubstar') %>.</p>
+
+  <h2>Ready to get started?</h2>
+
+  <p><%= link_to('Sign in', sign_in_path) %> with your GitHub account, then
+  download a <%= link_to('browser extension', '#') %>.</p>
+</div>
