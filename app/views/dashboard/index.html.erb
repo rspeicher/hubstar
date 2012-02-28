@@ -1,0 +1,26 @@
+<%- if signed_in? %>
+  <h2>My Starred Repositories</h2>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Watchers</th>
+        <th>Forks</th>
+        <th>Stars</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% current_user.repositories.each do |repo| %>
+        <tr>
+          <td><%= repo.name %></td>
+          <td><%= repo.description %></td>
+          <td><%= repo.watchers %></td>
+          <td><%= repo.forks %></td>
+          <td><%= repo.stars %></td>
+      <% end %>
+    </tbody>
+  </table>
+<%- else %>
+<%- end %>

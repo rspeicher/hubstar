@@ -35,4 +35,8 @@ class Repository < ActiveRecord::Base
   def user=(value)
     users << value
   end
+
+  def stars
+    users.size
+  end
 end

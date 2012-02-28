@@ -1,18 +1,13 @@
 class StarsController < ApplicationController
-  before_filter :authenticate_user!, only: [:index, :update, :destroy]
+  before_filter :authenticate_user!, only: [:update, :destroy]
 
   # Star for the current user
   def update
     @repo = Repository.find_or_initialize_by_name(params[:id])
+    current_user.repositories << @repo
 
-    if @repo.update_attributes(params[:repository].merge(user: current_user))
-      respond_to do |wants|
-        wants.json { render json: @repo.to_json(user: current_user) }
-      end
-    else
-      respond_to do |wants|
-        wants.json { render json: {error: @repo.errors.full_messages} }
-      end
+    respond_to do |wants|
+      wants.json { render json: @repo.to_json(user: current_user) }
     end
   end
 
