@@ -4,3 +4,4 @@
 /tmp
 *.crx
 *.pem
+config/heroku_env.rb
