@@ -5,10 +5,12 @@ getRepo = ->
 
 successHandler = (result) ->
   console.debug("successHandler", result)
-  if result? && !(result.error?)
-
-    # Add the button next to Watchers/Forks
-    setStat(result.stars, result.hubstarred)
+  if result?
+    if result.error?
+      alert("HubStar error: #{result.error}")
+    else
+      # Add the button next to Watchers/Forks
+      setStat(result.stars, result.hubstarred)
   else
     setStat(0, false)
 

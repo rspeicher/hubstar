@@ -6,8 +6,12 @@
   };
   successHandler = function(result) {
     console.debug("successHandler", result);
-    if ((result != null) && !(result.error != null)) {
-      return setStat(result.stars, result.hubstarred);
+    if (result != null) {
+      if (result.error != null) {
+        return alert("HubStar error: " + result.error);
+      } else {
+        return setStat(result.stars, result.hubstarred);
+      }
     } else {
       return setStat(0, false);
     }
