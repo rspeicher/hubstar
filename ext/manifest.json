@@ -1,6 +1,6 @@
 {
   "name": "HubStar",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "content_scripts": [
     {
       "matches": ["https://github.com/*"],
