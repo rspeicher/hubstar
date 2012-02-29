@@ -44,7 +44,7 @@ div.intro {
     font-weight: bold;
     font-size: 85%;
 
-    span {
+    span, a {
       display: inline-block;
       height: 21px;
       padding: 0 5px 0 23px;
@@ -52,9 +52,12 @@ div.intro {
       color: #666;
       background: transparent url(image-path('repostat.png')) no-repeat 0 0;
     }
-    .hubstars span {
+    .hubstars a {
       background: transparent url(image-path('stars.png')) no-repeat 0 0;
       background-position: 4px -47px;
+    }
+    .hubstarred a {
+      background-position: 4px 2px;
     }
     .watchers span {
       background-position: 5px -2px;

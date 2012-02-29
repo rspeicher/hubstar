@@ -6,7 +6,10 @@
     </div>
     <div class="span3">
       <div class="row repo-stats">
-        <div class="span1 hubstars"><span><%= repo.stars %></span></div>
+        <div class="span1 hubstars hubstarred">
+          <%= link_to(repo.stars, repository_path(repo), rel: 'tooltip',
+                      title: 'Toggle HubStar', data: {placement: 'bottom', id: repo.name}) %>
+        </div>
         <div class="span1 watchers"><span><%= repo.watchers %></span></div>
         <div class="span1 forks"><span><%= repo.forks %></span></div>
       </div>
