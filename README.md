@@ -9,7 +9,7 @@ After signing in to HubStar with your GitHub account and installing a browser
 extension, you'll notice a new section next to the fork and watch sections on
 any GitHub repository page:
 
-![](http://f.cl.ly/items/1C2o1e0L3n1H1N2Z1c0B/HubStar.jpg)
+![](http://f.cl.ly/items/1W08032V3h1113170C3Z/HubStar.jpg)
 
 The new **star icon** works just like the fork and watch icons you're used to
 using on GitHub. Click the star to remember it for later, click it again to
