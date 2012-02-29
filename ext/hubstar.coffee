@@ -1,10 +1,9 @@
-base  = "http://hubstar.herokuapp.com"
+base = "http://hubstar.herokuapp.com"
 
 getRepo = ->
   document.location.href.replace(/https:\/\/github.com\/([^\/\#]+)\/([^\/\#]+).*/i, "$1/$2").trim()
 
 successHandler = (result) ->
-  console.debug("successHandler", result)
   if result?
     if result.error?
       alert("HubStar error: #{result.error}")
@@ -27,6 +26,8 @@ clickHandler = (starred) ->
 
 initStat = ->
   li = $('<li class="hubstars"></li>')
+  li.html("<img src='#{chrome.extension.getURL("images/octocat-spinner-16px.gif")}'/>")
+
   $('ul.repo-stats').prepend(li)
 
   $('li.hubstars a').live 'click', ->
@@ -35,7 +36,6 @@ initStat = ->
     return false
 
 setStat = (stars, starred) ->
-  console.debug("setStat", stars, starred)
   li = $('li.hubstars')
 
   if starred

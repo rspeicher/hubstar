@@ -5,3 +5,10 @@ ul.repo-stats li.hubstars a {
 ul.repo-stats li.hubstars.hubstarred a {
   background-position: 4px 2px;
 }
+
+ul.repo-stats li.hubstars img {
+  position: relative;
+  top: 3px;
+  display: inline-block;
+  padding: 0px 5px 0 7px;
+}

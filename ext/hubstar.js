@@ -5,7 +5,6 @@
     return document.location.href.replace(/https:\/\/github.com\/([^\/\#]+)\/([^\/\#]+).*/i, "$1/$2").trim();
   };
   successHandler = function(result) {
-    console.debug("successHandler", result);
     if (result != null) {
       if (result.error != null) {
         return alert("HubStar error: " + result.error);
@@ -30,6 +29,7 @@
   initStat = function() {
     var li;
     li = $('<li class="hubstars"></li>');
+    li.html("<img src='" + (chrome.extension.getURL("images/octocat-spinner-16px.gif")) + "'/>");
     $('ul.repo-stats').prepend(li);
     return $('li.hubstars a').live('click', function() {
       clickHandler($(this).parent().hasClass('hubstarred'));
@@ -38,7 +38,6 @@
   };
   setStat = function(stars, starred) {
     var a, li;
-    console.debug("setStat", stars, starred);
     li = $('li.hubstars');
     if (starred) {
       li.addClass('hubstarred');
