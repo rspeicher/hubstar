@@ -1,5 +1,5 @@
 class Repository < ActiveRecord::Base
-  attr_accessible :name, :description, :watchers, :forks, :user
+  attr_accessible :name, :description, :watchers, :forks, :language, :user
 
   validates :name, uniqueness: true, format: /^[^\/]+\/[^\/]+$/
 
