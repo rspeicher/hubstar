@@ -6,14 +6,14 @@ already star Gists, so why not repositories?
 ## How does it work?
 
 After signing in to HubStar with your GitHub account and installing a browser
-extension, you'll notice a new section next to the fork and watch sections on
-any GitHub repository page:
+extension, you'll notice a new button next to the fork and watch button on any
+GitHub repository page:
 
 ![](http://f.cl.ly/items/1W08032V3h1113170C3Z/HubStar.jpg)
 
-The new **star icon** works just like the fork and watch icons you're used to
-using on GitHub. Click the star to remember it for later, click it again to
-stop.
+The new **star button** works just like the fork and watch buttons you're used
+to using on GitHub. Click the star to remember it for later, click it again to
+forget it.
 
 ## Security & Privacy
 
