@@ -6,7 +6,7 @@ Hubstar::Application.routes.draw do
 
   get 'about', :to => 'dashboard#about', :as => :about
 
-  resources :repositories, :only => [:index, :show, :update, :destroy], :constraints => {:id => /[\w\-\+\/]+/}
+  resources :repositories, :only => [:index, :show], :id => /[\w\-\+\/\.]+/
   resource :star, :only => [:update, :destroy]
 
   root :to => 'dashboard#index'

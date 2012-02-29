@@ -52,4 +52,4 @@ setStat = (stars, starred) ->
 if $('body.vis-public').length > 0 && $('div.repohead').length > 0
   initStat()
 
-  $.getJSON("#{base}/repositories/#{getRepo()}.json", successHandler)
+  $.getJSON("#{base}/repositories/#{getRepo()}", {format: 'json'}, successHandler)

@@ -35,7 +35,7 @@ describe "repositories#show" do
     it "correctly defines `hubstarred`" do
       repo.users << user
 
-      get "/repositories/#{repo.to_s}.json"
+      get "/repositories/#{repo.to_s}", :format => 'json'
       json = json(response.body)
 
       json['stars'].should == 1
@@ -45,7 +45,7 @@ describe "repositories#show" do
 
   context "when not logged in" do
     it "correctly defines `hubstarred`" do
-      get "/repositories/#{repo.to_s}.json"
+      get "/repositories/#{repo.to_s}", :format => 'json'
 
       json = json(response.body)
 
