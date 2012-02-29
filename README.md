@@ -26,6 +26,12 @@ extension.
 Further, the source for the entire site, including the browser extensions, is
 available on GitHub.
 
+## Alternatives
+
+* [Codeshelver](https://www.codeshelver.com/)
+* [hmason/gitmarks](https://github.com/hmason/gitmarks)
+* [jacksonh/gitmarks](https://github.com/jacksonh/gitmarks)
+
 ## Credits
 
 &copy; 2012 Robert Speicher, released under the MIT license. See `LICENSE` for
