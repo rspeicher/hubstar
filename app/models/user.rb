@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   serialize :github_data
 
-  delegate :login, :avatar_url, :html_url, to: :github_data
+  delegate :login, :avatar_url, :html_url, :name, to: :github_data
 
   has_and_belongs_to_many :repositories, uniq: true
 
