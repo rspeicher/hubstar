@@ -1,6 +1,6 @@
 {
   "name": "HubStar",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "content_scripts": [
     {
       "matches": ["https://github.com/*"],
@@ -10,7 +10,7 @@
   ],
   "permissions": [
     "tabs",
-    "http://hubstar.herokuapp.com/",
-    "https://hubstar.herokuapp.com/"
+    "http://hubstar.me/",
+    "https://hubstar.me/"
   ]
 }

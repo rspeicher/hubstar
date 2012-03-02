@@ -1,4 +1,4 @@
-base = "http://hubstar.herokuapp.com"
+base = "http://hubstar.me"
 
 # Extracts the username/repo combination from the current pathname
 getRepo = ->
