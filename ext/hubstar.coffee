@@ -53,7 +53,6 @@ initToggle = ->
 # Creates the repository stat for number of HubStars
 initStat = ->
   li = $('<li class="hubstars"></li>')
-  li.html("<img src='#{chrome.extension.getURL("images/octocat-spinner-16px.gif")}'/>")
   $('ul.repo-stats').prepend(li)
 
 # Updates the repository stat for number of HubStars and toggles the image appropriately
@@ -72,13 +71,12 @@ setStat = (stars, starred) ->
 
 # Don't do anything unless we're on a public repo page
 if $('body.vis-public').length > 0 && $('div.repohead').length > 0
-  initToggle()
-  initStat()
-
   # For initial load, fetch the information about this repo and update the elements
   $.getJSON("#{base}/repositories/#{getRepo()}", {format: 'json'}, (result) ->
+    initToggle()
+    initStat()
+
     if result?
-      console.debug(result)
       successHandler(result)
     else
       setStat(0, false)
