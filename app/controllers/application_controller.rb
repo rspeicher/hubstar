@@ -7,10 +7,14 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    return nil unless session[:user_id]
+    return nil unless session[:user_id] || cookies.signed[:user_id]
 
     begin
-      @current_user ||= User.find(session[:user_id])
+      if session[:user_id]
+        @current_user ||= User.find(session[:user_id])
+      elsif cookies.signed[:user_id]
+        @current_user ||= User.find(cookies.signed[:user_id])
+      end
     rescue ActiveRecord::RecordNotFound
       nil
     end
