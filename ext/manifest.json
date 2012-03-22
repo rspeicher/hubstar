@@ -1,15 +1,13 @@
 {
   "name": "HubStar",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "content_scripts": [
     {
       "matches": ["https://github.com/*"],
-      "js":      ["jquery.js", "hubstar.js"],
-      "css":     ["hubstar.css"]
+      "js":      ["hubstar.js"]
     }
   ],
   "permissions": [
-    "tabs",
     "http://hubstar.me/",
     "https://hubstar.me/"
   ]

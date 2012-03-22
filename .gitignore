@@ -5,4 +5,3 @@
 *.crx
 *.pem
 config/heroku_env.rb
-ext/hubstar.js

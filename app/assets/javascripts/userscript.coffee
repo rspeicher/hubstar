@@ -65,12 +65,14 @@ setStat = (stars, starred) ->
     li.removeClass('hubstarred')
 
   a = $("<a href='#{base}/repositories/#{getRepo()}' class='tooltipped downwards' title='HubStars'>#{stars}</a>")
-  a.css("background-image", "url('#{chrome.extension.getURL("images/stars.png")}')")
+  a.css("background-image", "url('#{base}/assets/stars.png')")
 
   li.html(a)
 
 # Don't do anything unless we're on a public repo page
 if $('body.vis-public').length > 0 && $('div.repohead').length > 0
+  $('head').append("<link href='#{base}/stylesheets/userscript.css' media='screen' rel='stylesheet' type='text/css' />")
+
   # For initial load, fetch the information about this repo and update the elements
   $.getJSON("#{base}/repositories/#{getRepo()}", {format: 'json'}, (result) ->
     initToggle()
