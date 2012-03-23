@@ -11,7 +11,7 @@ class RepositoriesController < ApplicationController
   end
 
   def show
-    @repo = Repository.find_by_name(params[:id])
+    @repo = Repository.find_or_initialize_by_name(params[:id])
 
     respond_to do |wants|
       wants.html
