@@ -3,11 +3,8 @@ class RepositoriesController < ApplicationController
   before_filter :authenticate_user!, only: [:index]
 
   def index
-
-    @repositories = current_user.repositories
-
     respond_to do |wants|
-      wants.html
+      wants.html { redirect_to root_path }
       # TODO: Not final
       wants.json { render json: @repositories.collect { |r| r.name } }
     end
