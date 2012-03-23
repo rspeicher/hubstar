@@ -1,4 +1,5 @@
 class StarsController < ApplicationController
+  before_filter :allow_cross_site_origin
   before_filter :authenticate_user!, only: [:update, :destroy]
 
   # Star for the current user

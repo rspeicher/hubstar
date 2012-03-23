@@ -27,9 +27,14 @@ class ApplicationController < ActionController::Base
   def authenticate_user!
     unless signed_in?
       respond_to do |wants|
-        wants.html { redirect_to sign_in_url, :alert => 'You need to sign in for access to this page.' }
+        wants.html { redirect_to sign_in_url, alert: 'You need to sign in for access to this page.' }
         wants.json { render json: {error: "You must be logged in on HubStar."} }
       end
     end
+  end
+
+  def allow_cross_site_origin
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Request-Method'] = '*'
   end
 end
