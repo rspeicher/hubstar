@@ -2,7 +2,7 @@
 
 <% @repo.users.each do |user| %>
   <div class="row user-info">
-    <div class="span1"><%= image_tag(user.avatar_url) %></div>
+    <div class="span1 user-avatar"><%= image_tag(user.avatar_url, size: '48x48') %></div>
     <div class="span11">
       <h3><%= link_to(user.username, user.html_url) %></h3>
       <span class="description">
