@@ -19,7 +19,7 @@ class Repository < ActiveRecord::Base
   def as_json(*args)
     u = args.first.delete(:user)
     hash = super(*args)
-    hash.merge!({hubstarred: has_user?(u), stars: users.count})
+    hash.merge!({hubstarred: has_user?(u), stars: stars})
   end
 
   # Checks if the given user is present in the record's <tt>users</tt> array.
@@ -41,6 +41,6 @@ class Repository < ActiveRecord::Base
   end
 
   def stars
-    users.size
+    users.count
   end
 end
