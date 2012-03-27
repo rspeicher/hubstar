@@ -18,5 +18,5 @@ clickHandler = (a) ->
   false
 
 $ ->
-  $('.repo-stats .hubstars a').live 'click', ->
+  $('.repo-stats .hubstars a[class]:not("toggle")').live 'click', ->
     clickHandler(this)
