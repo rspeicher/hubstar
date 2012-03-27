@@ -11,7 +11,8 @@ class RepositoriesController < ApplicationController
   end
 
   def show
-    @repo = Repository.find_or_initialize_by_name(params[:id])
+    @repo  = Repository.find_or_initialize_by_name(params[:id])
+    @users = @repo.users_with_priority_to(current_user)
 
     respond_to do |wants|
       wants.html

@@ -1,13 +1,21 @@
 <h2>Users who starred <%= link_to(@repo.to_s, @repo.link) %></h2>
 
-<% @repo.users.each do |user| %>
+<% @users.each do |user| %>
   <div class="row user-info">
     <div class="span1 user-avatar"><%= image_tag(user.avatar_url, size: '48x48') %></div>
-    <div class="span11">
+    <div class="span9">
       <h3><%= link_to(user.username, user.html_url) %></h3>
       <span class="description">
         <%= user.name %>
       </span>
+    </div>
+    <div class="span2 repo-stats">
+      <%- if user == current_user %>
+        <div class="hubstars hubstarred">
+          <p class="hint">Toggle HubStar:</p>
+          <%= link_to(@repo.stars, repository_path(@repo), class: 'toggle', data: {id: @repo.name}) %>
+        </div>
+      <%- end %>
     </div>
   </div>
 <% end %>
