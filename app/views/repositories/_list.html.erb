@@ -7,10 +7,14 @@
     <div class="span3">
       <div class="row repo-stats">
         <div class="span1 hubstars hubstarred">
-          <%= link_to(repo.stars, repository_path(repo)) %>
+          <%= link_to(number_with_delimiter(repo.stars, delimiter: ','), repository_path(repo)) %>
         </div>
-        <div class="span1 watchers"><span><%= repo.watchers %></span></div>
-        <div class="span1 forks"><span><%= repo.forks %></span></div>
+        <div class="span1 watchers">
+          <span><%= number_with_delimiter(repo.watchers, delimiter: ',') %></span>
+        </div>
+        <div class="span1 forks">
+          <span><%= number_with_delimiter(repo.forks, delimiter: ',') %></span>
+        </div>
       </div>
     </div>
   </div>
