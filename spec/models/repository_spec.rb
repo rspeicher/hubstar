@@ -33,6 +33,18 @@ describe Repository do
     end
   end
 
+  describe "#users_with_priority_to" do
+    it "shifts the current user to the front of the line" do
+      subject.users << user
+
+      new_user = FactoryGirl.create(:user)
+      subject.users << new_user
+
+      subject.users.should == [new_user, user]
+      subject.users_with_priority_to(user).should == [user, new_user]
+    end
+  end
+
   describe "mass-assigning a user" do
     it "adds an associated user" do
       subject.update_attributes(user: user)

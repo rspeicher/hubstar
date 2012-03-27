@@ -35,6 +35,24 @@ class Repository < ActiveRecord::Base
     end
   end
 
+  # Public: Get an array of users who have starred this repository, giving
+  # priority in sorting to the supplied user argument.
+  #
+  # user - The user to which priority should be given
+  #
+  # Returns the sorted array of user records.
+  def users_with_priority_to(user)
+    users = self.users
+
+    # If the user exists in the array and is not currently the first element,
+    # move it there
+    if users.include?(user) && users[0] != user
+      users.insert(0, users.slice!(users.index(user)))
+    end
+
+    users
+  end
+
   # Allows mass-assignment to add a single user to the collection
   def user=(value)
     users << value
