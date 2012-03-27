@@ -9,6 +9,10 @@ class Repository < ActiveRecord::Base
     name
   end
 
+  def to_param
+    name
+  end
+
   # Override as_json so that we can insert some attributes into the resulting
   # object
   #
