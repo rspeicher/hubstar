@@ -6,7 +6,7 @@ class RepositoriesController < ApplicationController
     respond_to do |wants|
       wants.html { redirect_to root_path }
       # TODO: Not final
-      wants.json { render json: @repositories.collect { |r| r.name } }
+      wants.json { render json: current_user.repositories.collect { |r| r.name } }
     end
   end
 
