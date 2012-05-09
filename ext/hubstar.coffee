@@ -12,8 +12,7 @@ successHandler = (result) ->
   if result.error?
     error(result.error)
   else
-    setStat(result.stars, result.hubstarred)
-    setStarred(result.hubstarred)
+    setStarred(result.stars, result.hubstarred)
 
 # Handles starring/unstarring a repository
 clickHandler = (a) ->
@@ -31,13 +30,14 @@ clickHandler = (a) ->
 # Replaces the Star/Unstar button with the button for the appropriate context
 #
 # Arguments:
+#   stars     [Integer]
 #   starred   [Boolean]
-setStarred = (starred) ->
+setStarred = (stars, starred) ->
   text  = if starred then 'Unstar' else 'Star'
   klass = if starred then 'starred' else 'unstarred'
 
-  star = $("<a href='#{base}/repositories/#{getRepo()}' class='minibutton btn-star #{klass}' data-remote='true' rel='nofollow'></a>")
-  star.html("<span><span class='icon'></span>#{text}</span>")
+  star = $("<a href='#{base}/repositories/#{getRepo()}' class='minibutton btn-star switcher count #{klass}' data-remote='true' rel='nofollow'></a>")
+  star.html("<span><span class='mini-icon star'></span><i>#{stars}</i> #{text}</span>")
 
   $('li.hubstar-container').html(star)
 
@@ -50,35 +50,14 @@ initToggle = ->
     clickHandler(this)
     false
 
-# Creates the repository stat for number of HubStars
-initStat = ->
-  li = $('<li class="hubstars"></li>')
-  $('ul.repo-stats').prepend(li)
-
-# Updates the repository stat for number of HubStars and toggles the image appropriately
-setStat = (stars, starred) ->
-  li = $('li.hubstars')
-
-  if starred
-    li.addClass('hubstarred')
-  else
-    li.removeClass('hubstarred')
-
-  a = $("<a href='#{base}/repositories/#{getRepo()}' class='tooltipped downwards' title='HubStars'>#{stars}</a>")
-  a.css("background-image", "url('#{chrome.extension.getURL("images/stars.png")}')")
-
-  li.html(a)
-
 # Don't do anything unless we're on a public repo page
 if $('body.vis-public').length > 0 && $('div.repohead').length > 0
   # For initial load, fetch the information about this repo and update the elements
   $.getJSON("#{base}/repositories/#{getRepo()}", {format: 'json'}, (result) ->
     initToggle()
-    initStat()
 
     if result?
       successHandler(result)
     else
-      setStat(0, false)
-      setStarred(false)
+      setStarred(0, false)
   )
