@@ -3,7 +3,7 @@ class Repository < ActiveRecord::Base
 
   validates :name, uniqueness: true, format: /^[^\/]+\/[^\/]+$/
 
-  has_and_belongs_to_many :users, uniq: true
+  has_and_belongs_to_many :users, uniq: true, order: :id
 
   def to_s
     name
