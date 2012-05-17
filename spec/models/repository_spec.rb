@@ -35,13 +35,11 @@ describe Repository do
 
   describe "#users_with_priority_to" do
     it "shifts the current user to the front of the line" do
+      subject.users << FactoryGirl.create(:user)
       subject.users << user
 
-      new_user = FactoryGirl.create(:user)
-      subject.users << new_user
-
-      subject.users.should == [new_user, user]
-      subject.users_with_priority_to(user).should == [user, new_user]
+      subject.users[0].should_not == user
+      subject.users_with_priority_to(user)[0].should == user
     end
   end
 
