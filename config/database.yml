@@ -1,0 +1,24 @@
+defaults: &defaults
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: localhost
+  user: root
+  password:
+
+development:
+  <<: *defaults
+  database: hubstar_development
+
+test: &test
+  <<: *defaults
+  database: hubstar_test
+
+cucumber:
+  <<: *test
+
+# Travis
+postgres:
+  adapter: postgresql
+  database: hubstar_test
+  username: postgres
