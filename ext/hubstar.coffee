@@ -35,16 +35,21 @@ clickHandler = (a) ->
 setStarred = (stars, starred) ->
   text  = if starred then 'Unstar' else 'Star'
   klass = if starred then 'starred' else 'unstarred'
+  link  = "#{base}/repositories/#{getRepo()}"
 
-  star = $("<a href='#{base}/repositories/#{getRepo()}' class='minibutton btn-star switcher count #{klass}' data-remote='true' rel='nofollow'></a>")
-  star.html("<span><span class='mini-icon star'></span><i>#{stars}</i> #{text}</span>")
-
-  $('li.hubstar-container').html(star)
+  $('li.hubstar-container').html("""
+  <span class="hubstar-button">
+    <a href="#{link}" class="minibutton btn-star #{klass}" data-remote="true" rel="nofollow">
+      <span><span class="mini-icon star"></span> #{text}</span>
+    </a>
+    <a class="social-count js-social-count" href="#{link}">#{stars}</a>
+  </span>
+  """)
 
 # Creates the "Star" button, and places it next to Watch/Unwatch, Fork, Pull Request, etc.
 initToggle = ->
-  container = $("<li class='for-owner hubstar-container'></li>")
-  $('ul.pagehead-actions').prepend(container)
+  container = $("<li class='js-social-container hubstar-container'></li>")
+  $('li.watch-button-container').before(container)
 
   $('a.btn-star').live 'click', ->
     clickHandler(this)
