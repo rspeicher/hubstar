@@ -16,6 +16,7 @@ gem 'omniauth-github', '~> 1.0.1'
 gem 'rack-rewrite',    '~> 1.2.1'
 
 group :development, :test do
+  gem 'capistrano',         '~> 2.12.0', require: false
   gem 'database_cleaner'
   gem 'factory_girl_rails', '~> 1.6.0'
   gem 'shoulda-matchers'
