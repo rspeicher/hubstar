@@ -2,6 +2,8 @@ language: ruby
 rvm:
   - 1.9.2
   - 1.9.3
+env:
+  - SECRET_TOKEN=54323b9a867b6a17793294d0b33fdedf
 before_script:
   - psql -c 'create database hubstar_test;' -U postgres
   - bundle exec rake db:migrate RAILS_ENV=test
