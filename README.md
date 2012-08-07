@@ -1,6 +1,10 @@
 # HubStar
 
-**HubStar** is the missing "star" feature for GitHub repositories. You can
+**Note: GitHub added Stars to repositories on Aug 6, 2012, so for the time
+being this project is no longer needed. I may do something else with it in the
+future.**
+
+**HubStar** is the missing "star" feature for GitHub repositories.  You can
 already star Gists, so why not repositories?
 
 ## How does it work?
